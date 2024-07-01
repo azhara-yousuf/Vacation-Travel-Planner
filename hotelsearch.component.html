@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Planner</title>
+    <link rel="icon" href="../../assets/LOGO.png" type="image/x-icon">
+    <link rel="stylesheet" href="hotelsearch.component.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+          <img src="../../assets/LOGO.png" alt="Travel Image">
+          </div>
+          <div class="title">
+            <h1>Trip Scape</h1>
+            <a href="flightfill"><img src="../../assets/airplane.png" alt="Aeroplane"></a>
+            <div class="image-overlay airplane-overlay">
+                <p>Flight</p>
+            </div>
+            <a href="busfill"><img src="../../assets/bus.png" alt="Bus"></a>
+            <div class="image-overlay bus-overlay">
+                <p>Bus</p>
+            </div>
+            <img src="../../assets/custom-clearance.png" alt="Package">
+            <div class="image-overlay package-overlay">
+                <p>Package</p>
+            </div>
+            <img src="../../assets/mountain.png" alt="Mountain">
+            <div class="image-overlay mountain-overlay">
+                <p>Attractions</p>
+            </div>
+            <a href="trainfill"><img src="../../assets/train.png" alt="Train" ></a>
+            <div class="image-overlay train-overlay">
+                <p>Train</p>
+            </div>
+            <a><img src="../../assets/resort.png" alt="Resort" (click)="navigateToMyHotelFill()"></a>
+            <div class="image-overlay resort-overlay">
+                <p>Resort</p>
+            </div>
+            <a href="cabfill"><img src="../../assets/taxi-cab.png" alt="Taxi Cab"></a>
+            <div class="image-overlay taxi-overlay">
+                <p>Taxi Cab</p>
+            </div>
+            </div>
+        <div class="nav">
+            <div class="dropdown">
+                <img src="../../assets/usericon1.png" alt="Logo">
+                <div class="dropdown-content" id="profileDropdown">
+                  <a (click)="navigateToMyProfile()">My Profile</a>
+                  <a href="">Logout</a>
+                </div>
+                <label>{{currentUser}}</label>
+              </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <section id="searchdetails">
+            <h3>Search Results...</h3>
+            <div class="inner">
+                <div class="city">
+                    <br>
+                    <label id="head">Preferred City</label><br>
+                    <label id="val">{{formData.city}}</label>
+                </div>
+                <div class="cin">
+                    <br>
+                    <label id="head">Check In</label><br>
+                    <label id="val">{{formData.checkIn}}</label>
+                </div>
+                <div class="cout">
+                    <br>
+                    <label id="head">Check Out</label><br>
+                    <label id="val">{{formData.checkOut}}</label>
+                </div>
+                <div class="roomscount">
+                    <br>
+                    <label id="head">Needed Rooms</label><br>
+                    <label id="val">{{formData.rooms}}</label>
+                </div>
+                <div class="costpernight">
+                    <br>
+                    <label id="head">Cost Per Night</label><br>
+                    <label id="val">{{formData.costPerNight}}</label>
+                </div>
+            </div>
+        </section>
+        <div class="middle">
+            <section id="filtersec"> 
+                <div class="sidebar">
+                    <label>Filters</label>
+                    <div class="filter">
+                    <h4>Rating</h4>
+                    <label><input type="checkbox" name="rating" value="4.5" (change)="onRatingFilterChange($event, 4.5)">above 4.5 </label><br>
+                    <label><input type="checkbox" name="rating" value="4" (change)="onRatingFilterChange($event, 4)">above 4 </label><br>
+                    <label><input type="checkbox" name="rating" value="3" (change)="onRatingFilterChange($event, 3)">above 3 </label><br>
+                    </div>
+                    <div class="filter">
+                    <h4>Location</h4>
+                    <label><input type="checkbox" name="location" value="1">Delhi</label><br>
+                    <label><input type="checkbox" name="location" value="2">Mumbai</label><br>
+                    <label><input type="checkbox" name="location" value="3">Goa</label><br>
+                    <label><input type="checkbox" name="location" value="4">Bangalore</label><br>
+                    <label><input type="checkbox" name="location" value="5">Tamilnadu</label><br>
+                    <label><input type="checkbox" name="location" value="6">Kerala</label><br>
+                    <label><input type="checkbox" name="location" value="7">Other Country</label><br>
+                    </div>
+                    <div class="filter">
+                    <h4>Price per Night</h4>
+                    <label><input type="checkbox" name="price" value="1">Rs.100-Rs.1500</label><br>
+                    <label><input type="checkbox" name="price" value="2">Rs.1500-Rs.2500</label><br>
+                    <label><input type="checkbox" name="price" value="3">Rs.2500-Rs.5000</label><br>
+                    <label><input type="checkbox" name="price" value="4">Above Rs.5000</label><br>
+                    </div>
+                </div>
+            </section>
+            <section id="hoteldisplay">
+                <div class="hotel-card">
+                    <div *ngFor="let hotel of hotelDetails">
+                        <div class="hcontent">
+                            <h2>{{ hotel.name }}</h2>
+                            <div class="imgcontent">
+                                <img [src]="getHotelImageSrc(hotel.img)" alt="Hotel Image">
+                                <div class="sidecontent">
+                                    <h2>Features</h2>
+                                    <ul>
+                                        <li *ngFor="let feature of hotel.features.split('\n')">{{ feature }}</li>
+                                    </ul>
+                                    <p>Location: {{ hotel.location }}</p>
+                                    <p>Rating: {{ hotel.rating }}</p>
+                                    <p>Price: {{ hotel.price }}</p>
+                                    <a class="vm" (click)="viewHotelDetails(hotel._id)">View More</a>
+                                </div>
+                            </div>                           
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <footer>
+        <div class="contact-details">
+            <h3>Contact Us</h3>
+            <p>Email: contact_tripscape&#64;gmail.com</p>
+            <p>Phone: +91 9800768722</p>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/YourFacebookPage" class="social-icon">
+                <img src="../../assets/facebook.png" alt="Facebook Icon">
+            </a>
+            <a href="https://twitter.com/YourTwitterProfile" class="social-icon">
+                <img src="../../assets/twitter.png" alt="Twitter Icon">
+            </a> 
+            <a href="https://www.instagram.com/YourInstagramProfile" class="social-icon">
+                <img src="../../assets/instagram.png" alt="Instagram Icon">
+            </a>
+        </div>
+    </footer>
+    <script>
+        // JavaScript to handle dropdown toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const profileDropdown = document.getElementById('profileDropdown');
+            const usernameLabel = document.getElementById('usernameLabel');
+  
+            profileDropdown.addEventListener('click', function(event) {
+                event.stopPropagation();
+            });
+  
+            document.addEventListener('click', function() {
+                profileDropdown.style.display = 'none';
+            });
+  
+            usernameLabel.addEventListener('click', function(event) {
+                event.stopPropagation();
+                profileDropdown.style.display = profileDropdown.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="login.component.css">
+</head>
+<body>
+    <div class="clogin">
+    <div class="image-holder">
+        <img class="gif" src="../../assets/ln.gif">
+     </div>
+    <div class="card">
+        <input type="checkbox" id="chk" aria-hidden="true" name="">
+        <div class="content">
+            <div class="front">
+                <div class= "inner">
+                    <h2 id="ln">Login</h2>
+                    <form (submit)="onSubmit()">
+                        <div class="form-group">
+                            <div class="input-wrapper">
+                                <input type="email" class="form-control" [(ngModel)]="email" id="email" placeholder="Email Address" name="email" required (input)="validateEmail()">
+                                <p *ngIf="!isEmailValid" class="error-message">Invalid email address</p>
+                                <p *ngIf="!emailPresence" class="error-message">*Email is required</p>
+                            </div>
+                        </div>
+                        <input type="password" class="details" [(ngModel)]="password" id="password" placeholder="Password" name="password" required/>
+                        <label for="chk" aria-hidden="true">Forget Password?</label><br>
+                        <button type="submit" class="login" id="btn" >Login</button>
+                        <p id="acc">Don't have your account ? <a id="su" href="/register">Sign Up here</a></p>
+                        <p id="ap">Switch to <a id="sp" href="/adminauth">Admin Portal</a></p>
+                    </form>
+                </div>
+            </div>
+
+            <div class="back">
+                <div class="inner">
+                    <h2 id="rp">Reset Password</h2>
+                    <div class="fp">
+                    <div class="form-group">
+                            <div class="input-wrapper">
+                                <input type="email" class="form-control" [(ngModel)]="email" id="mail" placeholder="Email Address" name="email" required (input)="validateEmail()">
+                                <p *ngIf="!isEmailValid" class="error-message">Invalid email address</p>
+                                <p *ngIf="!emailPresence" class="error-message">*Email is required</p>
+                            </div>
+                        </div>
+                    <button type="button" class="verify">Send Verification Number</button><br><br>
+                    <label for="chk" aria-hidden="true">Back to Log-in</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

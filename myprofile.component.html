@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="../myprofile/myprofile.component.css">
+</head>
+<body>
+    <div class="wrapper">
+    <h1>My Profile</h1>
+    <div class="container-wrapper">
+        <div class="container">
+            <div class="profile-info">
+                <h2>Basic Info--</h2>
+                <label for="name">Name:</label>
+                <span id="name">{{ currentUser.name }}</span><br><br>
+                <label for="contact">Contact No.:</label>
+                <span id="contact">{{ currentUser.contactno }}</span><br><br>
+                <label for="email">Email:</label>
+                <span id="email">{{ currentUser.email }}</span><br><br>
+                <div class="buttons">
+                    <button class="update-button" (click)="openpopup()">Update Profile</button><br><br>
+                    <button class="delete-button" (click)="deleteAccount()">Delete Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="overlay" *ngIf="show">
+        <div class="content">
+            <form (submit)="OnSubmit()">
+            <div class="close" (click)="closepopup()">&times;</div>
+            <input type="text" class="form-control" [(ngModel)]="updatedName" id="name" placeholder="Name" name="name" required/>
+            <input type="tel" class="form-control" [(ngModel)]="updatedContactNo" id="contactno" placeholder="Contact No. : (+## ##### #####)" pattern="\+\d{2} +\d{5} +\d{5}" name="contactno" required/>
+            <button class="subbtn">Update</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

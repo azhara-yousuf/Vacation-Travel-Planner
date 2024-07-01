@@ -1,0 +1,62 @@
+<html>
+<head>
+    <title>Sign Up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="register.component.css">
+    <script src="../../scripts/slider.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="inner">
+            <div class="image-holder">
+                <img class="gif" src="../../assets/Slide.gif">
+             </div>
+            <form (submit)="onSubmit()">
+                <h2>Sign Up</h2>
+
+                <div class="form-group">
+                    <div class="input-wrapper">
+                        <input type="text" class="form-control" [(ngModel)]="name" id="name" placeholder="Name" name="name" required (input)="nameInput()" (keypress)="onKeyPress1($event)"/>
+                        <p *ngIf="!namePresence" class="error-message">*Name is required</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-wrapper">
+                        <input type="tel" class="form-control" [(ngModel)]="contactno" id="contactno" placeholder="Contact No." name="contactno" required (keypress)="onKeyPress($event)" maxlength="10" (input)="cnoInput()"/>
+                        <p *ngIf="!cnoPresence" class="error-message">*Contact No. is required</p>
+                        <p *ngIf="contactno && contactno.length!=10" class="error-message">Invalid contact no.</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-wrapper">
+                        <input type="email" class="form-control" [(ngModel)]="email" id="email" placeholder="Email Address" name="email" required (input)="validateEmail()">
+                        <p *ngIf="!isEmailValid" class="error-message">Invalid email address</p>
+                        <p *ngIf="!emailPresence" class="error-message">*Email is required</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" [(ngModel)]="password" id="passwordInput" placeholder="Password" name="password" required (input)="onPasswordInput()">
+                    <div *ngIf="password && (!hasLength || !hasUppercase || !hasLowercase || !hasNumber || !hasSpecialChar)" id="popup">
+                        <p id="pm">Password must be:</p>
+                                <li *ngIf="!hasLength">at least 8 characters long</li>
+                                <li *ngIf="!hasUppercase">include an uppercase letter</li>
+                                <li *ngIf="!hasLowercase">include a lowercase letter</li>
+                                <li *ngIf="!hasNumber">include a number</li>
+                                <li *ngIf="!hasSpecialChar">include a special character</li>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-wrapper">
+                        <input type="password" class="form-control" [(ngModel)]="cpwd" id="cpwd" placeholder="Confirm Password" name="cpwd" required (input)="confirmPasswordInput()"/>
+                        <p *ngIf="confirmpwd" class="error-message">Passwords did not matched</p>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" id="btn" >Submit</button>
+            <div class="login">
+                <p>Already have an account ? <a href="/login">Login here</a></p>
+            </div>
+        </form>
+        </div>
+    </div>
+</body>
+</html>

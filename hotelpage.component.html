@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Planner</title>
+    <link rel="icon" href="../../assets/LOGO.png" type="image/x-icon">
+    <link rel="stylesheet" href="hotelpage.component.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+          <img src="../../assets/LOGO.png" alt="Travel Image">
+          </div>
+          <div class="title">
+            <h1>Trip Scape</h1>
+            <a href="flightfill"><img src="../../assets/airplane.png" alt="Aeroplane"></a>
+            <div class="image-overlay airplane-overlay">
+                <p>Flight</p>
+            </div>
+            <a href="busfill"><img src="../../assets/bus.png" alt="Bus"></a>
+            <div class="image-overlay bus-overlay">
+                <p>Bus</p>
+            </div>
+            <a href="packagefill"><img src="../../assets/custom-clearance.png" alt="Package"></a>
+            <div class="image-overlay package-overlay">
+                <p>Package</p>
+            </div>
+            <img src="../../assets/mountain.png" alt="Mountain">
+            <div class="image-overlay mountain-overlay">
+                <p>Attractions</p>
+            </div>
+            <a href="trainfill"><img src="../../assets/train.png" alt="Train" ></a>
+            <div class="image-overlay train-overlay">
+                <p>Train</p>
+            </div>
+           <a><img src="../../assets/resort.png" alt="Resort" (click)="navigateToMyHotelFill()"></a>
+            <div class="image-overlay resort-overlay">
+                <p>Resort</p>
+            </div>
+            <a href="cabfill"><img src="../../assets/taxi-cab.png" alt="Taxi Cab"></a>
+            <div class="image-overlay taxi-overlay">
+                <p>Taxi Cab</p>
+            </div>
+          </div>
+          <div class="nav">
+            <div class="dropdown">
+                <img src="../../assets/usericon1.png" alt="Logo">
+                <div class="dropdown-content" id="profileDropdown">
+                  <a (click)="navigateToMyProfile()">My Profile</a>
+                  <a href="">Logout</a>
+                </div>
+                <label>{{currentUser}}</label>
+              </div>
+        </div>
+    </header>
+    <div class="hotel-container">
+      <div class="img">
+        <div class="left1">
+          <img [src]="getHotelImageSrc(hotel.img)" alt="Hotel Image">
+        </div>
+        <div class="left2">
+          <img [src]="getHotelImageSrc(hotel.img1)" alt="Hotel Image">
+          <img [src]="getHotelImageSrc(hotel.img2)" alt="Hotel Image">
+          <img [src]="getHotelImageSrc(hotel.img3)" alt="Hotel Image">
+        </div>
+        </div>
+        <div class="right">
+          <div class="name"> <h1 class="hotel-name">{{hotel.name}}</h1></div>
+          <div class="loc"><label><img src="../../assets/LOC.png">{{hotel.location}}</label></div>
+          <div class="desc"><p class="description">{{hotel.desc}}</p></div>
+          <div class="info">
+            <div class="price">
+              <h3>Price </h3>
+              <h3>{{formattedPrice}}</h3>
+            </div>
+            <div class="rating">
+             <h3>Rating</h3>
+             <h3>{{hotel.rating}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fac">
+        <label><h2>Facilities Available</h2></label>
+        </div>
+      <div class="features">
+        <div class="feature">
+          <label><img src="../../assets/wifi.png" alt="Feature Image">Free Wi-Fi</label>
+       </div>
+       <div class="feature">
+         <label><img src="../../assets/restaurant.png" alt="Feature Image">Restaurant</label>
+        </div>
+        <div class="feature">
+          <label><img src="../../assets/fitness.png" alt="Feature Image">Gym</label>
+        </div>
+        <div class="feature">
+          <label><img src="../../assets/bar.png" alt="Feature Image">Bar</label>
+        </div>
+        <div class="feature">
+          <label><img src="../../assets/coffee-machine.png" alt="Feature Image"> Coffee maker in every room</label>
+        </div>
+        <div class="feature">
+          <label><img src="../../assets/massage.png" alt="Feature Image"> Spa</label>
+        </div>
+        <div class="feature">
+          <label><img src="../../assets/parking.png" alt="Feature Image"> Free Parking</label>
+        </div>
+        <div class="feature">
+          <label><img src="../../assets/swimming-pool.png" alt="Feature Image"> Swimming Pool</label>
+        </div>
+      </div>
+      
+      <table>
+        <h3>AVAILABILITY</h3>
+        <tr>
+          <td>
+            <label><img src="../../assets/single-bed.png" alt="Table Image"><b>Mandovi Bay View Rooms</b></label>
+            <ul>
+              <li>285 sq.ft</li>
+              <li>Bay View</li>
+              <li>Single Bed</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Laundry Service</li>
+              <li>Daily Housekeeping</li>
+              <li>Air Conditioning</li>
+            </ul>
+          </td>
+          <td>
+            Price: $4500 <br>
+            Discounted Price: $4199 <br><br>
+            <button (click)="navigateToPayment()">Book Room</button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label><img src="../../assets/double-bed.png" alt="Table Image"><b>Suite</b></label>
+            <ul>
+              <li>320 sq.ft</li>
+              <li>City View</li>
+              <li>Double Bed</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>Laundry Service</li>
+              <li>Daily Housekeeping</li>
+              <li>Air Conditioning</li>
+              <li>Work Desk</li>
+            </ul>
+          </td>
+          <td>
+            Price: $6500 <br>
+            Discounted Price: $6199 <br><br>
+            <button (click)="navigateToPayment()">Book Room</button>
+          </td>
+        </tr>
+
+      </table>
+      
+      <div class="property-rules">
+        <h2>Property Rules</h2>
+        <ul>
+          <li>Paasport,Aadhar and Driving License are accepted as ID proofs</li>
+          <li>Pets not allowed</li>
+          <li>Smoking within the premises is not allowed</li>
+        </ul>
+      </div>
+      
+      <div class="user-reviews">
+        <h2>User Reviews</h2>
+        <div class="review">
+          <div class="review1">
+          Location: <progress value="80" max="100"></progress><br>
+          Cleanliness: <progress value="60" max="100"></progress><br>
+          Value for money: <progress value="90" max="100"></progress><br>
+          </div>
+          <div class="review2">
+          Check-in experience: <progress value="75" max="100"></progress><br>
+          Amenities: <progress value="85" max="100"></progress><br>
+          Food: <progress value="75" max="100"></progress><br>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="contact-details">
+            <h3>Contact Us</h3>
+            <p>Email: contact_tripscape&#64;gmail.com</p>
+            <p>Phone: +91 9800768722</p>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/YourFacebookPage" class="social-icon">
+                <img src="../../assets/facebook.png" alt="Facebook Icon">
+            </a>
+            <a href="https://twitter.com/YourTwitterProfile" class="social-icon">
+                <img src="../../assets/twitter.png" alt="Twitter Icon">
+            </a> 
+            <a href="https://www.instagram.com/YourInstagramProfile" class="social-icon">
+                <img src="../../assets/instagram.png" alt="Instagram Icon">
+            </a>
+        </div>
+    </footer>
+    <script>
+      // JavaScript to handle dropdown toggle
+      document.addEventListener('DOMContentLoaded', function() {
+          const profileDropdown = document.getElementById('profileDropdown');
+          const usernameLabel = document.getElementById('usernameLabel');
+
+          profileDropdown.addEventListener('click', function(event) {
+              event.stopPropagation();
+          });
+
+          document.addEventListener('click', function() {
+              profileDropdown.style.display = 'none';
+          });
+
+          usernameLabel.addEventListener('click', function(event) {
+              event.stopPropagation();
+              profileDropdown.style.display = profileDropdown.style.display === 'block' ? 'none' : 'block';
+          });
+      });
+  </script>
+</body>
+</html>
+

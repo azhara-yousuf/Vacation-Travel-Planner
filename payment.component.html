@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TripScape</title>
+  <link rel="stylesheet" href="../../app/payment/payment.component.css">
+</head>
+<body>
+  <div class="container">
+      <div class="paytype">
+          <h1>Choose Payment Type</h1>
+          <div class="btntype">
+            <label class="upi" for="chk" aria-hidden="true">UPI</label><br>
+            <label class="credit" for="chk" aria-hidden="true">Debit Card</label><br>
+          </div>
+      </div>
+
+      <div class="content">
+        <input type="checkbox" id="chk" aria-hidden="true" name="">
+        <div class="dopay">
+          <div class="front">
+            <div class= "inner">
+              <h1>UPI Payment</h1>
+              <form action="#">
+                <label for="upi-id">Enter your UPI ID:</label>
+                <input type="text" id="upi-id" name="upi-id" placeholder="Your UPI ID" required><br>
+                <button class="paynow" type="submit" (click)="generatePDF()">Pay Now</button>
+              </form>
+            </div>
+          </div>
+
+        <div class="back">
+          <div class= "inner">
+            <h1>Debit Card Payment</h1>
+            <form action="#">
+              <label for="card-number">Card Number:</label>
+              <input type="text" id="card-number" name="card-number" placeholder="XXXX XXXX XXXX XXXX" required>
+              <label for="expiry-date">Expiry Date:</label>
+              <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
+              <label for="cvv">CVV:</label>
+              <input type="text" id="cvv" name="cvv" placeholder="XXX" required><br>
+              <button class="paynow" type="submit">Pay Now</button>
+            </form>
+          </div>
+        </div>
+        </div>
+      </div>
+  </div>
+</body>
+</html>

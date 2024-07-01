@@ -1,0 +1,268 @@
+.hotel-container {
+    display: flex;
+  }
+  .left1 img {
+    width: 500px;
+    height: 330px;
+    border: #1e105c solid;
+    margin-top:20px;
+  }
+
+  
+  .left2 {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    border: #1e105c;
+  }
+  .img{
+    display: flex;
+  }
+  .info {
+    display: flex;
+    align-items: center; 
+
+  }
+  .image-overlay {
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    background-color:#1e105c;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+}
+
+.title img:hover + .image-overlay,
+.title a:hover + .image-overlay,
+.image-overlay:hover {
+    opacity: 1;
+    pointer-events: auto;
+}
+  h1{
+    font-size:35px;
+  }
+  .desc{
+    font-size: 15px;
+  }
+  progress{
+    background-color: #1e105c;
+  }
+  .price,.rating{
+    margin-left: 20px;
+    border: #1e105c solid;
+    border-style: dashed;
+    width:200px;
+    height:100px;
+  }
+
+  .price h3{
+    margin-left: 10%;
+  }
+  .rating h3{
+    margin-left: 17%;
+  }
+
+  .left2 img {
+    width: 200px; 
+    height: 100px; 
+    margin:2px;
+    border-color: #1e105c;
+    border-style: groove;
+  }
+  table,th,td{
+    border-color: black;
+    border-style:groove;
+  }
+  table img,.loc img{
+    width:50px;
+    height:50px;
+  }
+  table button{
+    border-radius: 10px;
+    border:#1e105c;
+    background-color:#1e105c;
+    color: #fff;
+    padding:15px;
+  }
+  .right {
+    width: 50%;
+    padding-left: 20px;
+  }
+
+  .right img{
+    width:20px;
+    height:20px;
+  }
+
+  .right1{
+    display: flex;
+    margin-left: 100px;
+  }
+  .features {
+    display: flex;
+  }
+  
+  .feature {
+    margin-right: 40px;
+    border-color: #1e105c;
+    border-radius: 20px;
+    border-style: groove;
+    padding:10px;
+  }
+  .review{
+    display: flex;
+  }
+  .review1,.review2{
+    margin-right: 200px;
+  }
+  .feature img{
+    width:40px;
+    height:40px;
+  }
+  table {
+    width: 100%;
+  }
+  
+  .property-rules {
+    margin-top: 20px;
+  }
+  
+  .user-reviews {
+    margin-top: 20px;
+  }
+  
+  .user-reviews progress {
+    width: 100px;
+  }
+  footer {
+    background-color:#1e105c;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    animation: slide-up 2s ease-out forwards;
+  }
+  .social-icons img {
+    width: 30px;
+    height: 30px;
+}
+
+.social-icons a {
+  margin:  10px;
+}
+.title h1 {
+    margin-right: 500px;
+    color:white;
+    animation: slide-up 2s ease-out forwards;
+}
+.title {
+    display: flex;
+    align-items: center;
+    animation: slide-up 2s ease-out forwards;
+}
+
+
+.title img {
+    width: 50px;
+    height: auto;
+    margin-right: 20px;
+    box-shadow: 0 4px 6px white;
+    background-color: white;
+    animation: glow1 2s ease-in-out infinite;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color:#1e105c;
+}
+
+@keyframes slide-up {
+  0% {
+      opacity: 0;
+      transform: translateY(50%);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+.nav img{
+    margin-right:20px;
+  }
+
+.title img{
+  width:30px;
+  height:30px;
+}
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 20px black;
+    }
+    to {
+      box-shadow: 0 0 30px black, 0 0 10px black;
+    }
+  }
+  @keyframes glow1 {
+    from {
+      box-shadow: 0 0 20px white;
+    }
+    to {
+      box-shadow: 0 0 30px white, 0 0 10px white;
+    }
+  }
+  body{
+    width:100%;
+  }
+  header {
+    background-color: #1e105c;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  header img {
+    height: 50px;
+    width: 50px;
+  }
+  .logo img {
+    width:250px;
+    height: 50px;
+    border:white;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Manage Hotels</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <img src="../../assets/LOGO.png" alt="Travel Image">
+                <h1>Trip Scape</h1>
+                <div class="exit">
+                    <a href="">Exit-->></a>
+                </div>
+            </div>
+            <div id="hoteldisplay">
+                <h1>Hotels</h1>
+                <div class="hotel-card">
+                    <button class="addhotel" (click)="openAddModal()">Add Hotel +</button>
+                    <div *ngFor="let hotel of hotelDetails">
+                        <div class="hcontent">
+                            <h2>{{ hotel.name }}</h2>
+                            <div class="imgcontent">
+                                <div class="img">
+                                    <div class="left1">
+                                      <img [src]="getHotelImageSrc(hotel.img)" alt="Hotel Image">
+                                    </div>
+                                    <div class="left2">
+                                      <img [src]="getHotelImageSrc(hotel.img1)" alt="Hotel Image1">
+                                      <img [src]="getHotelImageSrc(hotel.img2)" alt="Hotel Image2">
+                                      <img [src]="getHotelImageSrc(hotel.img3)" alt="Hotel Image3">
+                                    </div>
+                                </div>
+                                <div class="sidecontent">
+                                    <h2>Description : </h2>
+                                    <p>{{hotel.desc}}</p>
+                                    <h2>Features</h2>
+                                    <ul>
+                                        <li *ngFor="let feature of hotel.features.split('\n')">{{ feature }}</li>
+                                    </ul>
+                                    <p>Available Rooms : {{hotel.roomcount}}</p>
+                                    <p>Location: {{ hotel.location }}</p>
+                                    <p>Rating: {{ hotel.rating }}</p>
+                                    <p>Price: {{ hotel.price }}</p> 
+                                </div>                              
+                            </div>  
+                            <a class="vm" (click)="openModal(hotel)"><img src="../../assets/update.gif">Update</a> 
+                            <a class="dm" (click)="deleteHotel(hotel.name)"><img src="../../assets/del.gif">Delete</a>                  
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

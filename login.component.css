@@ -1,0 +1,226 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'jost',sans-serif;
+}
+
+body{
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: linear-gradient(rgba(57, 57, 62, 0.65),rgba(48, 47, 52, 0.65)), url(../../assets/loginback.jpg);
+    background-size: cover;
+}
+
+.image-holder{
+    margin-top: 9px;
+}
+
+.card{
+    width: 350px;
+    height:430px;
+    perspective: 1500px;
+    display: flex;
+}
+
+.gif{
+    height: 430px;
+    width:600px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(48, 43, 114, 0.2);
+}
+
+#chk{
+    display: none;
+}
+
+#chk:checked ~ .content{
+    animation: 2s animate;
+    transform: rotateY(180deg);
+}
+
+.content{
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    transition: transform 1s cubic-bezier(0.75,0,0.85,1);
+    border-radius: 8px;
+    margin-top: 8px;
+}
+
+.front, .back{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    perspective: 1500px;
+    border-radius: 8px;
+}
+
+.back{
+    transform: rotateY(180deg);
+}
+
+.inner{
+    height:100%;
+    padding: 1.5em;
+    transform: translateZ(80px) scale(1);
+}
+
+#ln{
+    position: absolute;
+    top: 50px;
+    left: 30px;
+    font-size: 28px;
+    color: rgb(4, 4, 39);
+    margin-left: 30%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bolder;
+}
+
+#rp{
+    position: absolute;
+    top: 50px;
+    margin-left: 14%;
+    font-size: 28px;
+    color: rgb(4, 4, 39);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bolder;
+}
+
+#signin{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#acc{
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 2px;
+}
+
+#su{
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#ap{
+    font-size: 10px;
+    font-family: 'Times New Roman';
+    margin-left: 200px;
+    margin-top: 40px;
+}
+
+#sp{
+    font-size: 10px;
+    font-family: 'Times New Roman';
+}
+
+#email{
+    margin-top: 27%;
+}
+
+input[type=email]{
+    width:95%;
+    height:40px;
+    color: #000;
+    margin-top: 15px;
+    margin-left: 8px;
+}
+
+
+input[type=password]{
+    width:95%;
+    height:40px;
+    padding: 15px;
+    margin: 38px 8px 18px;
+    color: #000;
+}
+
+input[type=email]::placeholder,
+input[type=password]::placeholder{
+    color: rgb(102, 102, 110);
+}
+
+.front label{
+    padding: 8px 6px;
+    margin-left: 4px;
+    color: red;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.clogin{
+    display: flex;
+}
+
+.back label{
+    padding: 8px 6px;
+    margin-left: 28%;
+    margin-top:30%;
+    color:white;
+    background-color: indigo;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    border: 2px solid #333;
+    border-radius: 6px;
+}
+
+.login{
+    margin-top: 3%;
+    margin-left: 30%;
+    margin-bottom: 8%;
+    color: #fff;
+    background-color:indigo;
+    padding: 5px 45px 5px 45px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bolder;
+    border: 2px solid #333;
+    border-radius: 6px;
+}
+
+.verify{
+    color: #fff;
+    background-color:indigo;
+    padding: 5px 45px 5px 45px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bolder;
+    border: 2px solid #333;
+    border-radius: 6px;
+    margin-left:22px;
+    margin-top: 20px;
+}
+
+
+.img{
+    width: 35px;
+    height: auto;
+    padding: 2px;
+}
+
+.fp{
+    position: relative;
+    margin-top: 20%;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.error-message {
+    position: absolute;
+    top: calc(100% + 2px);  /* Position the error message just below the input */
+    left: 0;
+    color: rgb(204, 30, 30);
+    font-size: 10px;
+}

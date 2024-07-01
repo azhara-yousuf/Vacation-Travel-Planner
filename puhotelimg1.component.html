@@ -1,0 +1,42 @@
+<div class="modal-container">
+    <div class="modal">
+        <h2>Edit Hotel Details</h2>
+        <form>
+            <label>Name:</label>
+            <input type="text" id="name" [(ngModel)]="hotel.name" [ngModelOptions]="{standalone: true}" value="{{hotel.name}}"><br>
+            <label>Description:</label>
+            <textarea id="desc" [(ngModel)]="hotel.desc" [ngModelOptions]="{standalone: true}" value="{{hotel.desc}}" rows="2" required></textarea><br>
+            <label>Features:</label>
+            <textarea id="features" [(ngModel)]="hotel.features" [ngModelOptions]="{standalone: true}" value="{{hotel.features}}" rows="2" required></textarea><br>
+            <label>Available Rooms:</label>
+            <input type="text" id="rc" [(ngModel)]="hotel.roomcount" [ngModelOptions]="{standalone: true}" value="{{hotel.roomcount}}"><br>
+            <label>Location:</label>
+            <input type="text" id="loc" [(ngModel)]="hotel.location" [ngModelOptions]="{standalone: true}" value="{{hotel.location}}"><br>
+            <label>Price:</label>
+            <input type="text" id="price" [(ngModel)]="hotel.price" [ngModelOptions]="{standalone: true}" value="{{hotel.price}}"><br>
+            <label>Rating:</label>
+            <input type="text" id="rat" [(ngModel)]="hotel.rating" [ngModelOptions]="{standalone: true}" value="{{hotel.rating}}"> <br>           
+            
+            <div class="imgsection">
+                <label id="mi">Main Image:</label>
+                <img *ngIf="hotel.img" [src]="imgData" alt="Hotel Image"><br>
+                <input type="file" (change)="onFileSelected($event)"><br>
+
+                <label>Image 1:</label>
+                <img *ngIf="hotel.img1" [src]="img1Data" alt="Hotel Image1"><br>
+                <input type="file" (change)="onFileSelected1($event)"><br>
+
+                <label>Image 2:</label>
+                <img *ngIf="hotel.img2" [src]="img2Data" alt="Hotel Image2"><br>
+                <input type="file" (change)="onFileSelected2($event)"><br>
+
+                <label>Image 3:</label>
+                <img *ngIf="hotel.img3" [src]="img3Data" alt="Hotel Image3"><br>
+                <input type="file" (change)="onFileSelected3($event)"><br>
+            </div>
+
+            <button type="button" class="upbtn" (click)="saveChanges()">Update</button>
+            <button type="button" class="delbtn" (click)="closeDialog()">Cancel</button>
+        </form>
+    </div>
+</div>

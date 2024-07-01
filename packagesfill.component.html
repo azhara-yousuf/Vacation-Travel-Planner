@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Planner</title>
+    <link rel="icon" href="../../assets/LOGO.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="container">
+          <img src="../../assets/LOGO.png" alt="Travel Image">
+          </div>
+          <div class="title">
+            <h1>Trip Scape</h1>
+            <a href="flightfill"><img src="../../assets/airplane.png" alt="Aeroplane"></a>
+            <div class="image-overlay airplane-overlay">
+                <p>Flight</p>
+            </div>
+            <a href="busfill"><img src="../../assets/bus.png" alt="Bus"></a>
+            <div class="image-overlay bus-overlay">
+                <p>Bus</p>
+            </div>
+            <img src="../../assets/custom-clearance.png" alt="Package">
+            <div class="image-overlay package-overlay">
+                <p>Package</p>
+            </div>
+            <img src="../../assets/mountain.png" alt="Mountain">
+            <div class="image-overlay mountain-overlay">
+                <p>Attractions</p>
+            </div>
+            <a href="trainfill"><img src="../../assets/train.png" alt="Train" ></a>
+            <div class="image-overlay train-overlay">
+                <p>Train</p>
+            </div>
+            <a ><img src="../../assets/resort.png" alt="Resort" (click)="navigatrToMyHotelFill()"></a>
+            <div class="image-overlay resort-overlay">
+                <p>Resort</p>
+            </div>
+            <a href="cabfill"><img src="../../assets/taxi-cab.png" alt="Taxi Cab"></a>
+            <div class="image-overlay taxi-overlay">
+                <p>Taxi Cab</p>
+            </div>
+            </div>
+        <div class="nav">
+          <div class="dropdown">
+            <img src="../../assets/usericon1.png" alt="Logo">
+            <div class="dropdown-content" id="profileDropdown">
+              <a (click)="navigateToMyProfile()">My Profile</a>
+              <a href="">Logout</a>
+            </div>
+            <label>{{currentUser}}</label>
+          </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <div class="details-container">
+            <img src="../../assets/hotelback.gif" alt="Background Image">
+            <div class="details">
+                   
+                <form #packageForm="ngForm" (submit)="onSubmit(packageForm)">
+                    <div class="date-travelers-class">
+                        <div class="location-details">
+                            <div class="from-label">
+                              <h3>From</h3>
+                              <input type="text" id="from" name="from" [(ngModel)]="formData.from" placeholder="Enter departure location" (keypress)="onKeyPress1($event)">
+                            </div>
+                            <div class="to-label">
+                              <h3>To</h3>
+                              <input type="text" id="to" name="to" [(ngModel)]="formData.to" placeholder="Enter destination location" (keypress)="onKeyPress1($event)">
+                            </div>
+                            <div class="depdate">
+                                <h3>Departure Date</h3>
+                                <input type="date" name="ddate" [(ngModel)]="formData.ddate" placeholder="Departure Date" [min]="getToday()">
+                            </div>
+                            <div class="nooftrav">
+                                <h3>Guest count</h3>
+                              <input type="number" name="memcount" [(ngModel)]="formData.memcount" placeholder="Travellers count" min="0" max="12" step="1" value="0"/>
+                            </div>                
+                        </div>
+                    </div>
+                        <div class="trendysearch">
+                            <div class="ts1"> <p><b>Trending searches:</b></p></div>
+                            <div class="ts2"><p><b>Delhi-Bangalore</b></p></div>
+                            <div class="ts3"> <p><b>Kolkata-Chennai</b></p></div>
+                        </div>
+                        <button class="search-button">SEARCH</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="offers">
+      <div class="offer">
+        <img src="../../assets/offer1.jpg" alt="Offer 1">
+        <p><b>Best time to visit Goa -India</b></p>
+      </div>
+      <div class="offer">
+        <img src="../../assets/offer2.jpg" alt="Offer 2">
+        <p><b>Relish the beauty of Bhutan mountains</b></p>
+      </div>
+      <div class="offer">
+        <img src="../../assets/offer3.jpg" alt="Offer 3">
+        <p><b>Visit Thailand at 50% off</b></p>
+      </div>
+      <div class="offer">
+        <img src="../../assets/offer4.jpg" alt="Offer 4">
+        <p><b>Climb Himalayas at low price</b></p>
+      </div>
+  </div>
+    <footer>
+        <div class="contact-details">
+            <h3>Contact Us</h3>
+            <p>Email: contact_tripscape&#64;gmail.com</p>
+            <p>Phone: +91 9800768722</p>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/YourFacebookPage" class="social-icon">
+                <img src="../../assets/facebook.png" alt="Facebook Icon">
+            </a>
+            <a href="https://twitter.com/YourTwitterProfile" class="social-icon">
+                <img src="../../assets/twitter.png" alt="Twitter Icon">
+            </a> 
+            <a href="https://www.instagram.com/YourInstagramProfile" class="social-icon">
+                <img src="../../assets/instagram.png" alt="Instagram Icon">
+            </a>
+        </div>
+    </footer>
+    <script>
+      // JavaScript to handle dropdown toggle
+      document.addEventListener('DOMContentLoaded', function() {
+          const profileDropdown = document.getElementById('profileDropdown');
+          const usernameLabel = document.getElementById('usernameLabel');
+
+          profileDropdown.addEventListener('click', function(event) {
+              event.stopPropagation();
+          });
+
+          document.addEventListener('click', function() {
+              profileDropdown.style.display = 'none';
+          });
+
+          usernameLabel.addEventListener('click', function(event) {
+              event.stopPropagation();
+              profileDropdown.style.display = profileDropdown.style.display === 'block' ? 'none' : 'block';
+          });
+      });
+  </script>
+</body>
+</html>

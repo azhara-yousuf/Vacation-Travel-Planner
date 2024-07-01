@@ -1,0 +1,134 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background:url("../../assets/background.jpg");
+    background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    font-size: 13px;
+    margin:0;
+}
+
+input, button{
+    font-family: Arial, Helvetica, sans-serif;
+    color:#333;
+    font-size: 14px;
+}
+
+h2{
+    margin:0;
+}
+
+.gif{
+    width:750px;
+    height: 490px;
+    box-shadow: 0 2px 5px rgba(48, 43, 114, 0.2);
+}
+
+:focus{
+    outline:none;
+}
+
+.wrapper{
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.inner{
+    padding:20px;
+    background: #fff;
+    width: 1130px;
+    height: 530px;
+    margin:auto;
+    display: flex;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(48, 43, 114, 0.2);
+
+}
+
+
+.inner form{
+    width: 50%;
+    padding-top: 36px;
+    padding-left: 45px;
+    padding-right: 45px;
+    box-shadow: 0 15px 18px rgba(48, 43, 114, 0.2);
+}
+
+.inner h2{
+    text-transform:uppercase;
+    font-size: 25px;
+    text-align:center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-bottom: 20px;
+}
+
+.login p{
+    margin-left: 15px;
+}
+
+.form-wrapper{
+    position: relative;
+}
+
+.form-control{
+    border: 1px solid #333;
+    border:none;
+    border-bottom: 1px solid #333;
+    display: block;
+    width: 250px;
+    height: 30px;
+    padding-right: 0;
+    margin-bottom: 20px;
+}
+
+#btn{
+    border:none;
+    width:164px;
+    height:51px;
+    margin:auto;
+    margin-top: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0;
+    background: #333;
+    font-size: 15px;
+    color: #fff;
+}
+#btn:hover{
+    background: #6c31da;
+}
+
+
+
+.img{
+    width: 35px;
+    height: auto;
+    padding: 2px;
+}
+
+#pm,#cpm,li{
+    font-size: 10px;
+    color: rgb(204, 30, 30);
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.error-message {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 5px;
+    margin-bottom: 15px; /* Adjust the margin top as needed */
+    color: rgb(204, 30, 30); /* Set the color of the error message */
+    font-size: 10px; /* Set the font size of the error message */
+}
+
