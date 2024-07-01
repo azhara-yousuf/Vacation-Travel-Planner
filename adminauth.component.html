@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Admin Auth</title>
+        <link rel="stylesheet" href="../adminauth/adminauth.component.css">
+    </head>
+    <body>
+        <form (submit)="onSubmit()">
+            <div class="content">
+                <input type="text" class="form-control" [(ngModel)]="aid" id="aid" placeholder="Admin Id" name="aid" required><br>
+                <input type="password" class="form-control" [(ngModel)]="password" id="password" placeholder="Password" name="password" required>
+                <button type="submit" class="btn" id="btn" >Submit</button>
+            </div>
+        </form>
+    </body>
+</html>
